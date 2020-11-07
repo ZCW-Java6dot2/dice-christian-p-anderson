@@ -16,7 +16,6 @@ public class Dice {
         return sumOfDice;
     }
 
-
     public int getNumberOfDice() {
         return this.numberOfDice;
     }
