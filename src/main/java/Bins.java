@@ -1,8 +1,4 @@
 import java.util.HashMap;
-//import java.util.Map; not used
-//import java.util.Set;
-//import java.util.Iterator; not used
-
 
 public class Bins {
 
@@ -11,7 +7,6 @@ public class Bins {
     private int binNum = 0;
 
     public HashMap<Integer, Integer> results;
-//    public Set<Integer> allBins;
 
 
     // create a hashmap and put in starting bin number first and add one until you hit the last bin number which is the ending number
@@ -25,7 +20,6 @@ public class Bins {
             this.results.put(i, 0);
         }
 
-//        this.allBins = this.results.keySet();
     }
 
 
@@ -40,20 +34,6 @@ public class Bins {
         this.binNum = binNum;
         this.results.put(binNum, this.results.get(binNum) + 1);
     }
-
-
-//    public boolean doesBinExist(int key) {
-//        boolean hasKeyToken = false;
-//
-//        for (int diceRoll: allKeys) {
-//            if (key == diceRoll) {
-//                hasKeyToken = true;
-//                break;
-//            }
-//        }
-//
-//        return hasKeyToken;
-//    }
 
 }
 

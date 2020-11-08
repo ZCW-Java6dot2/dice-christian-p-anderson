@@ -1,5 +1,64 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
+
 public class Simulation {
 
+    private int numberOfDice;
+    private int numberOfTosses;
+    private Bins simulationBins;
+
+    public Simulation(int numberOfDice, int numberOfTosses) {
+        this.numberOfDice = numberOfDice;
+        this.numberOfTosses = numberOfTosses;
+    }
+
+    public static void main(String[] args) {
+        Simulation sim = new Simulation(2, 1000000);
+        sim.runSimulation();
+
+    }
+
+    public void runSimulation() {
+        Dice simulationDice = new Dice(this.numberOfDice);
+        simulationBins = new Bins(this.numberOfDice, (this.numberOfDice * 6)); // based on the sample code provided in the Readme file
+
+        for (int i = 0; i < this.numberOfTosses; i++) {
+            int bin = simulationDice.tossAndSum();
+            simulationBins.incrementBin(bin);
+        }
+    }
+
+    public void saveToFile() throws FileNotFoundException {
+
+        PrintStream file = new PrintStream(new File("christianDiceSimResults.md"));
+//        PrintStream console = System.out;
+
+        System.setOut(file);
+
+        StringBuilder results = new StringBuilder();
+
+        results.append("--- Simulation of " + this.numberOfDice + " dice tossed for " + this.numberOfTosses + " ---");
+
+        for (int bin : simulationBins.results.keySet()) {
+            int value = simulationBins.results.get(bin);
+            results.append(String.format("%3d : %8d : %4.2f ", bin, value, ((double) value / (double) this.numberOfTosses)));
+            int stars = (int) Math.floor((double) (value / (this.numberOfTosses / 100)));
+            results.append(repeatStars("*", stars) + "\n");
+        }
+
+        System.out.println(results.toString());
+    }
+
+    public String repeatStars(String stringToRepeat, int numberOfTimes) {
+        String returnString = "";
+
+        for (int i = 0; i < numberOfTimes; i++) {
+            returnString += stringToRepeat;
+        }
+
+        return returnString;
+    }
 
 
 }

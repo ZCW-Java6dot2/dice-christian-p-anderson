@@ -5,7 +5,7 @@ public class BinsTest {
 
     @Test
     public void testMinBin() {
-        Bins testBin = new Bins(2, 12);
+        Bins testBin = new Bins(2, 12); // if 2 dice then min score is 2 and max is 12
         int actual = testBin.getBin(2);
         int expected = 0;
         Assertions.assertEquals(expected, actual);
