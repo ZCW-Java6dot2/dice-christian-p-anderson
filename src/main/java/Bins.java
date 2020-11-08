@@ -30,7 +30,7 @@ public class Bins {
 
 
     // roll the dice and increment the value of the bin by one
-    public void incrementBin(int binNum) {
+    public void incrementValue(int binNum) {
         this.binNum = binNum;
         this.results.put(binNum, this.results.get(binNum) + 1);
     }

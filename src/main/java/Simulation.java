@@ -19,14 +19,12 @@ public class Simulation {
 
         for (int i = 0; i < this.numberOfTosses; i++) {
             int bin = simulationDice.tossAndSum();
-            simulationBins.incrementBin(bin);
+            simulationBins.incrementValue(bin);
         }
     }
 
     public void saveToFile() throws FileNotFoundException {
-
-        PrintStream file = new PrintStream(new File("christianDiceSimResults.md"));
-//        PrintStream console = System.out;
+        PrintStream file = new PrintStream(new File("christianResults.md"));
 
         System.setOut(file);
 
