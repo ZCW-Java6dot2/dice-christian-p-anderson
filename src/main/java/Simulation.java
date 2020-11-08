@@ -36,13 +36,13 @@ public class Simulation {
             int value = simulationBins.results.get(bin);
             results.append(String.format("%3d : %8d : %4.2f ", bin, value, ((double) value / (double) this.numberOfTosses)));
             int stars = (int) Math.floor((double) (value / (this.numberOfTosses / 100)));
-            results.append(repeatStars("*", stars) + "\n");
+            results.append(numberOfStars("*", stars) + "\n");
         }
 
         System.out.println(results.toString());
     }
 
-    public String repeatStars(String stringToRepeat, int numberOfTimes) {
+    public String numberOfStars(String stringToRepeat, int numberOfTimes) {
         String returnString = "";
 
         for (int i = 0; i < numberOfTimes; i++) {
