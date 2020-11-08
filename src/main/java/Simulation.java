@@ -13,12 +13,6 @@ public class Simulation {
         this.numberOfTosses = numberOfTosses;
     }
 
-    public static void main(String[] args) {
-        Simulation sim = new Simulation(2, 1000000);
-        sim.runSimulation();
-
-    }
-
     public void runSimulation() {
         Dice simulationDice = new Dice(this.numberOfDice);
         simulationBins = new Bins(this.numberOfDice, (this.numberOfDice * 6)); // based on the sample code provided in the Readme file
@@ -38,7 +32,7 @@ public class Simulation {
 
         StringBuilder results = new StringBuilder();
 
-        results.append("--- Simulation of " + this.numberOfDice + " dice tossed for " + this.numberOfTosses + " ---");
+        results.append("--- Simulation of " + this.numberOfDice + " dice tossed for " + this.numberOfTosses + " ---\n");
 
         for (int bin : simulationBins.results.keySet()) {
             int value = simulationBins.results.get(bin);
