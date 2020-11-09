@@ -24,9 +24,10 @@ public class Simulation {
     }
 
     public void saveToFile() throws FileNotFoundException {
+        PrintStream screen = System.out;
         PrintStream file = new PrintStream(new File("christianResults.md"));
 
-        System.setOut(file);
+//        System.setOut(file);
 
         StringBuilder results = new StringBuilder();
 
@@ -39,7 +40,10 @@ public class Simulation {
             results.append(numberOfStars("*", stars) + "\n");
         }
 
-        System.out.println(results.toString());
+//        System.out.println(results.toString());
+
+        file.println(results.toString());
+        screen.println(results.toString());
     }
 
     public String numberOfStars(String stringToRepeat, int numberOfTimes) {
